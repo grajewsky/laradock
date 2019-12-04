@@ -14,7 +14,7 @@
 
 ARG LARADOCK_PHP_VERSION
 
-FROM laradock/php-fpm:2.5-${LARADOCK_PHP_VERSION}
+FROM laradock/php-fpm:2.6.1-${LARADOCK_PHP_VERSION}
 
 LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 
@@ -31,7 +31,7 @@ RUN if [ ${CHANGE_SOURCE} = true ]; then \
 
 # always run apt update when start and after add new source list, then clean up at end.
 RUN set -xe; \
-    apt-get update -yqq && \
+    apt-get update -yqq --fix-missing && \
     pecl channel-update pecl.php.net && \
     apt-get install -yqq \
       apt-utils \
