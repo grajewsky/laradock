@@ -26,6 +26,8 @@ ENV DEBIAN_FRONTEND noninteractive
 # Start as root
 USER root
 
+COPY ./${APP_CODE_PATH_HOST}../ ${APP_CODE_PATH_CONTAINER}
+
 ###########################################################################
 # Laradock non-root user:
 ###########################################################################
